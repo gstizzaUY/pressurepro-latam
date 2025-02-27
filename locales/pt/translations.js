@@ -40,7 +40,7 @@ export default {
     },
     world: {
         typingTex: "Tecnologia de ponta para a América Latina",
-        title: "PressurePro LATAM distribuidor exclusivo para a América Latina de PressurePro",
+        title: "PressurePro LATAM distribuidor exclusivo para América Latina da PressurePro",
         description: "Somos líderes em tecnologia de monitoramento de pressão de pneus, fornecendo soluções inovadoras para a segurança e eficiência de sua frota."
     },
     insights: {
