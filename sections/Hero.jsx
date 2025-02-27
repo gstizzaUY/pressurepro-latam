@@ -45,7 +45,7 @@ const Hero = () => {
         >
           <div className='absolute w-full h-[300px] rounded-tl-[140px] z-[0] -top-[30px]' />
           <img
-            src='/cover.png'
+            src='/cover-resaltado.png'
             alt='cover'
             className='w-full sm:h-[1024px] h-[400px] object-contain md:object-cover rounded-tl-[140px] z-10 relative sm:p-9 p-4' // Altura y padding reducidos en móviles
           />
