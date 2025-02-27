@@ -29,12 +29,12 @@ export default {
         title2: "¿Por qué elegir PressurePro?",
         newFeatures: [
             {
-                imgUrl: '/vrpano.svg',
+                imgUrl: '/pp-white.png',
                 title: "Seguridad",
                 subtitle: "Previene accidentes detectando variaciones de presión, mejorando el control, la estabilidad y la confiabilidad del vehículo."
             },
             {
-                imgUrl: '/headset.svg',
+                imgUrl: '/pp-white.png',
                 title: "Ahorro",
                 subtitle: "Optimiza el consumo de combustible, reduce el desgaste de los neumáticos y minimiza los costos de mantenimiento y reemplazo."
             }
