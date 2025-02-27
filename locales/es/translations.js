@@ -54,24 +54,32 @@ export default {
                 title: '{ Sensors }',
                 description:
                     'Se instalan ajustándolos al vástago de la válvula del neumático. El monitoreo avanzado incluye una lógica de detección dinámica única en el mercado con altas tasas de muestreo y una protección inigualable.',
+                specs: 'Descargar Especificaciones',
+                specsUrl: 'SEN-200-Spec-Sheet.pdf',
             },
             {
                 imgUrl: '/planet-07.png',
                 title: '{ Pulse TMPMS + Display }',
                 description:
                     'El primer dispositivo de la línea TPMS+ de PressurePro, PULSE, ofrece a los usuarios una opción de visualización dentro de la cabina, integrando nuestra lista completa de funciones avanzadas en un diseño atractivo y fácil de usar.',
+                specs: 'Descargar Especificaciones',
+                specsUrl: '/PLS-100-Spec-Sheet.pdf',
             },
             {
                 imgUrl: '/planet-08.png',
                 title: '{ Link - HD, LT y UR }',
                 description:
                     'Un componente clave para aplicaciones en flotas y fabricantes de equipos originales (OE), así como para configuraciones de acople y desacople, ya sean independientes o integradas. Los productos LINK cuentan con un resistente y avanzado gabinete certificado.',
+                specs: 'Descargar Especificaciones',
+                specsUrl: 'LNK-101-Spec-Sheet.pdf',
             },
             {
                 imgUrl: '/planet-088.png',
                 title: '{ Fx }',
                 description:
                     'FX brinda a los usuarios una gestión de neumáticos líder en el mercado, con un valor inigualable. Aprovecha dispositivos inteligentes existentes y las aplicaciones personalizadas de TPMS de PressurePro para ofrecer un monitoreo de neumáticos potente.',
+                specs: 'Descargar Especificaciones',
+                specsUrl: '/FX-Fleet.pdf',
             },
         ],
     },

@@ -52,24 +52,32 @@ export default {
                 title: '{ Sensores }',
                 description:
                     'Eles são instalados ajustando-os à haste da válvula do pneu. O monitoramento avançado inclui uma lógica de detecção dinâmica única no mercado com altas taxas de amostragem e proteção incomparável.',
+                specs: 'Baixar Especificações',
+                specsUrl: '/SEN-200-Spec-Sheet.pdf',
             },
             {
                 imgUrl: '/planet-07.png',
                 title: '{ Pulse TMPMS + Display }',
                 description:
                     'O Pulse TMPMS é um sistema de monitoramento de pressão de pneus e temperatura que oferece uma solução de monitoramento de pressão de pneus em tempo real para veículos de passeio, caminhões e ônibus.',
+                specs: 'Baixar Especificações',
+                specsUrl: '/PLS-100-Spec-Sheet.pdf',
             },
             {
                 imgUrl: '/planet-08.png',
                 title: '{ Link - HD, LT y UR }',
                 description:
                     'O Link é um dispositivo de comunicação que permite a integração de sensores de pressão de pneus com sistemas de telemática de veículos.',
+                specs: 'Baixar Especificações',
+                specsUrl: 'LNK-101-Spec-Sheet.pdf',
             },
             {
                 imgUrl: '/planet-088.png',
                 title: '{ Fx }',
                 description:
                     'O Fx é um sistema de monitoramento de pressão de pneus e temperatura que oferece uma solução de monitoramento de pressão de pneus em tempo real para veículos de passeio, caminhões e ônibus.',
+                specs: 'Baixar Especificações',
+                specsUrl: '/FX-Fleet.pdf',
             },
         ],
     },
