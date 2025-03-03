@@ -2,7 +2,7 @@ import { insights } from "@/constants/data";
 
 export default {
     hero: {
-        // title: "Monitoreo de neumáticos en tiempo real",
+        title: "PressurePro LATAM",
         subtitle: "Monitoreo de neumáticos en tiempo real"
     },
     about: {
@@ -19,14 +19,16 @@ export default {
             'world-2': "Agricultura",
             'world-3': "Forestal",
             'world-4': "Portuario",
-            'world-5': "Industrial"
+            'world-5': "Industrial",
+            'world-6': "Transporte"
         },
         marketInfo: {
             'world-1': "En minería, nuestro sistema de monitoreo de neumáticos optimiza la vida útil de equipos de alto costo y mejora la seguridad operacional en entornos extremos.",
             'world-2': "Para el sector agrícola, ofrecemos soluciones que maximizan el rendimiento de maquinaria y reducen tiempos de inactividad durante periodos críticos de siembra y cosecha.",
             'world-3': "En entornos forestales, nuestros sensores resisten condiciones difíciles y ayudan a mantener equipos funcionando en terrenos remotos y desafiantes.",
             'world-4': "La operación portuaria se beneficia con nuestro sistema, optimizando flotas de manejo de carga donde el tiempo de inactividad representa costos significativos.",
-            'world-5': "En ambientes industriales, nuestras soluciones mejoran la confiabilidad de equipos y reducen riesgos en operaciones continuas donde la seguridad es prioritaria."
+            'world-5': "En ambientes industriales, nuestras soluciones mejoran la confiabilidad de equipos y reducen riesgos en operaciones continuas donde la seguridad es prioritaria.",
+            'world-6': "En el transporte, nuestro sistema de monitoreo de neumáticos optimiza la vida útil de equipos de alto costo y mejora la seguridad operacional en entornos extremos."
         }
     },
     getStarted: {

@@ -2,7 +2,7 @@ import { insights } from "@/constants/data";
 
 export default {
     hero: {
-        // title: "PressurePro LATAM",
+        title: "PressurePro LATAM",
         subtitle: "Real-time tire monitoring"
     },
     about: {
@@ -19,14 +19,16 @@ export default {
             'world-2': "Agriculture",
             'world-3': "Forestry",
             'world-4': "Port",
-            'world-5': "Industrial"
+            'world-5': "Industrial",
+            'world-6': "Transport"
         },
         marketInfo: {
             'world-1': "In mining, our tire monitoring system optimizes the lifespan of high-cost equipment and enhances operational safety in extreme environments.",
             'world-2': "For the agricultural sector, we offer solutions that maximize machinery performance and reduce downtime during critical planting and harvesting periods.",
             'world-3': "In forestry environments, our sensors withstand tough conditions and help keep equipment running in remote and challenging terrains.",
             'world-4': "Port operation benefits from our system, optimizing cargo handling fleets where downtime represents significant costs.",
-            'world-5': "In industrial settings, our solutions enhance equipment reliability and reduce risks in continuous operations where safety is a priority."
+            'world-5': "In industrial settings, our solutions enhance equipment reliability and reduce risks in continuous operations where safety is a priority.",
+            'world-6': "In transportation, our tire monitoring system optimizes the lifespan of high-cost equipment and enhances operational safety in extreme environments."
         }
     },
     getStarted: {

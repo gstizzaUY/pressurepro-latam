@@ -14,7 +14,7 @@ const Navbar = () => {
       variants={navVariants}
       initial='hidden'
       whileInView='show'
-      className='sm:px-16 px-6 py-8 relative'
+      className='sm:px-16 px-6 py-8 fixed top-0 left-0 right-0 z-50'
     >
       <div className='absolute w-[50%] inset-0 gradient-01' />
       <div className='2xl:max-w-[1280px] w-full mx-auto flex justify-between gap-8'>

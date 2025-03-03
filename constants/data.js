@@ -24,6 +24,11 @@ export const worlds = [
     imgUrl: '/industrial.jpeg',
     title: 'Industrial',
   },
+  {
+    id: 'world-6',
+    imgUrl: '/transport.jpeg',
+    title: 'Transporte',
+  },
 ];
 
 export const features = {
