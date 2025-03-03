@@ -9,14 +9,23 @@ export default {
     },
     explore: {
         title: "Mercados",
-        subtitle: "Uma solução para cada indústria",
+        subtitle: "Uma solução para cada setor",
+        showInfo: "+ Info",
+        closeInfo: "Fechar",
         industries: {
             'world-1': "Mineração",
             'world-2': "Agricultura",
             'world-3': "Florestal",
             'world-4': "Portuário",
             'world-5': "Industrial"
-        }
+        },
+        marketInfo: {
+            'world-1': "Na mineração, nosso sistema de monitoramento de pneus otimiza a vida útil de equipamentos de alto custo e melhora a segurança operacional em ambientes extremos.",
+            'world-2': "Para o setor agrícola, oferecemos soluções que maximizam o desempenho de máquinas e reduzem o tempo de inatividade durante períodos críticos de plantio e colheita.",
+            'world-3': "Em ambientes florestais, nossos sensores resistem a condições difíceis e ajudam a manter os equipamentos funcionando em terrenos remotos e desafiadores.",
+            'world-4': "A operação portuária se beneficia de nosso sistema, otimizando frotas de manuseio de carga onde o tempo de inatividade representa custos significativos.",
+            'world-5': "Em ambientes industriais, nossas soluções melhoram a confiabilidade dos equipamentos e reduzem riscos em operações contínuas onde a segurança é prioritária."
+        },
     },
     getStarted: {
         title: "Comece agora",

@@ -36,10 +36,16 @@ const Explore = () => {
               index={index}
               active={active}
               handleClick={setActive}
-              translations={translations.explore.industries}
+              translations={{
+                ...translations.explore.industries,
+                showInfo: translations.explore.showInfo || '+ Info',
+                closeInfo: translations.explore.closeInfo || 'Cerrar'
+              }}
+              marketInfo={translations.explore.marketInfo}
             />
           ))}
         </div>
+        
       </motion.div>
     </section>
   )

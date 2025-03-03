@@ -12,12 +12,21 @@ export default {
     explore: {
         title: "Markets",
         subtitle: "A solution for every industry",
+        showInfo: "+ Info",
+        closeInfo: "Close",
         industries: {
             'world-1': "Mining",
             'world-2': "Agriculture",
             'world-3': "Forestry",
             'world-4': "Port",
             'world-5': "Industrial"
+        },
+        marketInfo: {
+            'world-1': "In mining, our tire monitoring system optimizes the lifespan of high-cost equipment and enhances operational safety in extreme environments.",
+            'world-2': "For the agricultural sector, we offer solutions that maximize machinery performance and reduce downtime during critical planting and harvesting periods.",
+            'world-3': "In forestry environments, our sensors withstand tough conditions and help keep equipment running in remote and challenging terrains.",
+            'world-4': "Port operation benefits from our system, optimizing cargo handling fleets where downtime represents significant costs.",
+            'world-5': "In industrial settings, our solutions enhance equipment reliability and reduce risks in continuous operations where safety is a priority."
         }
     },
     getStarted: {
