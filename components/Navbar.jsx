@@ -18,39 +18,39 @@ const Navbar = () => {
     >
       <div className='absolute w-[50%] inset-0 gradient-01' />
       <div className='2xl:max-w-[1280px] w-full mx-auto flex justify-between gap-8'>
-        <div className='flex gap-2 sm:gap-2'>
+        <div className='flex gap-1 sm:gap-2'>
           <button
             onClick={() => changeLanguage('es')}
-            className={`w-8 h-8 ${language === 'es' ? 'opacity-100' : 'opacity-60'}`}
+            className={`w-6 h-6 sm:w-8 sm:h-8 ${language === 'es' ? 'opacity-100' : 'opacity-60'}`}
           >
             <img
               src='/es.svg'
               alt='Spanish'
-              className='w-[32px] h-[32px] sm:w-[48px] sm:h-[48px] object-contain cursor-pointer hover:opacity-90'
+              className='w-[24px] h-[24px] sm:w-[32px] sm:h-[32px] object-contain cursor-pointer hover:opacity-90'
             />
           </button>
           <button
             onClick={() => changeLanguage('pt')}
-            className={`w-8 h-8 ${language === 'pt' ? 'opacity-100' : 'opacity-50'}`}
+            className={`w-6 h-6 sm:w-8 sm:h-8 ${language === 'pt' ? 'opacity-100' : 'opacity-50'}`}
           >
             <img
               src='/br.svg'
               alt='Portuguese'
-              className='w-[32px] h-[32px] sm:w-[48px] sm:h-[48px] object-contain cursor-pointer hover:opacity-90'
+              className='w-[24px] h-[24px] sm:w-[32px] sm:h-[32px] object-contain cursor-pointer hover:opacity-90'
             />
           </button>
           <button
             onClick={() => changeLanguage('en')}
-            className={`w-8 h-8 ${language === 'en' ? 'opacity-100' : 'opacity-50'}`}
+            className={`w-6 h-6 sm:w-8 sm:h-8 ${language === 'en' ? 'opacity-100' : 'opacity-50'}`}
           >
             <img
               src='/us.svg'
               alt='English'
-              className='w-[32px] h-[32px] sm:w-[48px] sm:h-[48px] object-contain cursor-pointer hover:opacity-90'
+              className='w-[24px] h-[24px] sm:w-[32px] sm:h-[32px] object-contain cursor-pointer hover:opacity-90'
             />
           </button>
         </div>
-        <h1 className='font-extrabold text-[26px] leading-[40px] text-white'>Pressure Pro LATAM</h1>
+        <h1 className='font-extrabold text-[20px] sm:text-[26px] leading-[30px] sm:leading-[40px] text-white truncate'>Pressure Pro LATAM</h1>
         <img
           src='/menu.svg'
           alt='menu'
