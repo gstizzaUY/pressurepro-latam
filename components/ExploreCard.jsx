@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion';
 import { fadeIn } from '../utils/motion';
 
-const ExploreCard = ({ id, imgUrl, title, index, active, handleClick, translations, marketInfo }) => {
+const ExploreCard = ({ id, imgUrl, title, index, active, handleClick, translations, marketInfo, isMobileView }) => {
   const [showModal, setShowModal] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -21,25 +21,23 @@ const ExploreCard = ({ id, imgUrl, title, index, active, handleClick, translatio
     return () => window.removeEventListener('resize', checkIfMobile);
   }, []);
 
-  // Expandir todas las tarjetas por defecto en móviles
-  useEffect(() => {
-    if (isMobile && index === 0) {
-      handleClick(id);
-    }
-  }, [isMobile, id, index, handleClick]);
-
   const handleModalClick = (e) => {
     e.stopPropagation(); // Evita que el click se propague al div padre
     setShowModal(!showModal);
   };
 
+  // Determinar si esta tarjeta debería mostrarse como activa
+  const isActive = isMobileView || active === id;
+  
   return (
     <motion.div
       variants={fadeIn('right', 'spring', index * 0.5, 0.75)}
-      className={`relative ${active === id ? 'lg:flex-[3.5] flex-[10]' : 'lg:flex-[0.5] flex-[2]'} 
-      flex items-center justify-center min-w-[170px] h-[400px] md:h-[500px] lg:h-[700px] transition-[flex] duration-[0.7s] ease-out-flex cursor-pointer
-      ${isMobile ? 'mb-4' : ''}`}
-      onClick={() => handleClick(id)}
+      className={`relative 
+        ${isMobileView 
+          ? 'flex-[1] h-[350px] mb-6' 
+          : `${active === id ? 'lg:flex-[3.5] flex-[10]' : 'lg:flex-[0.5] flex-[2]'} h-[400px] md:h-[500px] lg:h-[700px]`} 
+        flex items-center justify-center min-w-[170px] transition-[flex] duration-[0.7s] ease-out-flex cursor-pointer`}
+      onClick={() => !isMobileView && handleClick(id)}
     >
       <img
         src={imgUrl}
@@ -47,7 +45,7 @@ const ExploreCard = ({ id, imgUrl, title, index, active, handleClick, translatio
         className='absolute w-full h-full object-cover rounded-[24px]'
       />
       
-      {active !== id ? (
+      {!isActive ? (
         <div className='flex flex-col items-center absolute z-0 lg:bottom-20 bottom-10'>
           <h3 className='font-semibold sm:text-[26px] text-[18px] text-white lg:rotate-[-90deg] lg:origin-[0,0] text-center'>
             {translations[id]}
