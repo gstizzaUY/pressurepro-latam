@@ -50,7 +50,7 @@ const Navbar = () => {
             />
           </button>
         </div>
-        <h1 className='font-extrabold text-[20px] sm:text-[26px] leading-[30px] sm:leading-[40px] text-white truncate'>Pressure Pro LATAM</h1>
+        <h1 className='font-extrabold text-[18px] sm:text-[26px] leading-[30px] sm:leading-[40px] text-white truncate'>Pressure Pro LATAM</h1>
         <img
           src='/menu.svg'
           alt='menu'
