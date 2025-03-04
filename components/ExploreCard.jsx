@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion';
 import { fadeIn } from '../utils/motion';
 
@@ -16,16 +16,16 @@ const ExploreCard = ({ id, imgUrl, title, index, active, handleClick, translatio
       variants={fadeIn('right', 'spring', index * 0.5, 0.75)}
       initial="hidden"
       whileInView="show"
-      viewport={{ once: false, amount: 0.25 }} // Ajuste: visible cuando 25% está en viewport
-      transition={{ duration: 0.5 }} // Base de transición
+      viewport={{ once: false, amount: 0.25 }}
+      transition={{ duration: 0.5 }}
       exit={{ 
         opacity: 0,
-        transition: { duration: 1.2 } // Retraso en la salida más largo
+        transition: { duration: 1.2 }
       }}
-      className={`relative 
+      className={`relative my-4 md:my-6 lg:my-8
         ${isMobileView 
-          ? 'w-full flex-auto h-[400px] mb-8' 
-          : `${active === id ? 'lg:flex-[3.5] flex-[10]' : 'lg:flex-[0.5] flex-[2]'} h-[400px] md:h-[500px] lg:h-[700px]`} 
+          ? 'w-full flex-auto h-[320px] mb-8' 
+          : `${active === id ? 'lg:flex-[3.5] flex-[10]' : 'lg:flex-[0.5] flex-[2]'} h-[350px] md:h-[450px] lg:h-[550px]`} 
         flex items-center justify-center min-w-[170px] transition-[flex] duration-[0.7s] ease-out-flex cursor-pointer
         ${isMobileView ? '' : 'hover:opacity-90'}`}
       onClick={() => !isMobileView && handleClick(id)}
@@ -76,7 +76,7 @@ const ExploreCard = ({ id, imgUrl, title, index, active, handleClick, translatio
           </div>
           
           {/* Modal optimizado */}
-          <AnimatePresence mode="wait" exitBeforeEnter>
+          <AnimatePresence mode="wait">
             {showModal && (
               <motion.div
                 initial={{ opacity: 0 }}

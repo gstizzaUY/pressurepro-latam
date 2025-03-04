@@ -25,14 +25,14 @@ const Explore = () => {
   }, []);
 
   return (
-    <section className='sm:p-16 xs:p-8 px-6 py-12' id='explore'>
+    <section className='sm:p-16 xs:p-8 px-6 py-8 md:py-12' id='explore'>
       <motion.div
         variants={staggerContainer}
         initial='hidden'
         whileInView='show'
         viewport={{
           once: false,
-          amount: 0.1 // Reducido para que empiece a mostrarse antes
+          amount: 0.1
         }}
         className='2xl:max-w-[1280px] w-full mx-auto flex flex-col'
       >
@@ -41,7 +41,7 @@ const Explore = () => {
           title={<>{translations.explore.subtitle} <br className='md:block hidden'/></>} 
           textStyles='text-center'
         />
-        <div className={`mt-[50px] flex ${isMobile ? 'flex-col' : 'lg:flex-row flex-col'} min-h-[70vh] gap-5`}>
+        <div className={`mt-[30px] md:mt-[50px] flex ${isMobile ? 'flex-col' : 'lg:flex-row flex-col'} gap-5 pb-8`}>
           {worlds.map((world, index) => (
             <ExploreCard
               key={world.id}
