@@ -32,7 +32,7 @@ const Explore = () => {
         whileInView='show'
         viewport={{
           once: false,
-          amount: 0.25
+          amount: 0.1 // Reducido para que empiece a mostrarse antes
         }}
         className='2xl:max-w-[1280px] w-full mx-auto flex flex-col'
       >

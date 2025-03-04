@@ -14,6 +14,14 @@ const ExploreCard = ({ id, imgUrl, title, index, active, handleClick, translatio
   return (
     <motion.div
       variants={fadeIn('right', 'spring', index * 0.5, 0.75)}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: false, amount: 0.25 }} // Ajuste: visible cuando 25% está en viewport
+      transition={{ duration: 0.5 }} // Base de transición
+      exit={{ 
+        opacity: 0,
+        transition: { duration: 1.2 } // Retraso en la salida más largo
+      }}
       className={`relative 
         ${isMobileView 
           ? 'w-full flex-auto h-[400px] mb-8' 
@@ -68,12 +76,15 @@ const ExploreCard = ({ id, imgUrl, title, index, active, handleClick, translatio
           </div>
           
           {/* Modal optimizado */}
-          <AnimatePresence>
+          <AnimatePresence mode="wait" exitBeforeEnter>
             {showModal && (
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
+                exit={{ 
+                  opacity: 0,
+                  transition: { duration: 0.3 } 
+                }}
                 className="fixed inset-0 z-50 flex items-center justify-center p-4"
                 onClick={handleModalClick}
               >
@@ -81,12 +92,18 @@ const ExploreCard = ({ id, imgUrl, title, index, active, handleClick, translatio
                   className="absolute inset-0 bg-black bg-opacity-60 backdrop-blur-sm"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
                 />
                 <motion.div
                   className="relative bg-[#1A232E] p-4 md:p-6 rounded-2xl border border-[#6A6A6A] w-full max-h-[80vh] overflow-y-auto max-w-[90%] md:max-w-lg glassmorphism z-10"
                   initial={{ scale: 0.9, y: 20, opacity: 0 }}
                   animate={{ scale: 1, y: 0, opacity: 1 }}
-                  exit={{ scale: 0.9, y: 20, opacity: 0 }}
+                  exit={{ 
+                    scale: 0.95, 
+                    y: 10, 
+                    opacity: 0,
+                    transition: { duration: 0.3 }
+                  }}
                   transition={{ type: "spring", bounce: 0.3 }}
                   onClick={(e) => e.stopPropagation()}
                 >
