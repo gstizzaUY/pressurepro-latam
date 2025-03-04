@@ -10,7 +10,7 @@ const WhatsNew = () => {
   const { translations } = useContext(LanguageContext);
 
   return (
-    <section className='sm:p-16 xs:p-8 px-6 py-12 relative z-10'>
+    <section id='whatsnew' className='sm:p-16 xs:p-8 px-6 py-12 relative z-10'>
       <motion.div
         variants={staggerContainer}
         initial='hidden'
@@ -19,7 +19,7 @@ const WhatsNew = () => {
           once: false,
           amount: 0.25
         }}
-        className='2xl:max-w-[1280px] w-full mx-auto flex lg:flex-row flex-col gap-8'
+        className='2xl:max-w-[1280px] w-full mx-auto flex lg:flex-row flex-col gap-8 py-48'
       >
         <motion.div
           variants={fadeIn('right', 'tween', 0.2, 1)}

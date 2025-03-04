@@ -1,13 +1,22 @@
 import { insights } from "@/constants/data";
 
 export default {
+    navbar: {
+        about: 'Acerca de PressurePro LATAM',
+        explore: 'Mercados',
+        getStarted: 'Comenzar',
+        whatsNew: 'Por qué PressurePro',
+        world: 'Representación',
+        insights: 'Productos',
+        feedback: 'Contacto'
+    },
     hero: {
         title: "PressurePro LATAM",
         subtitle: "Monitoreo de neumáticos en tiempo real"
     },
     about: {
         title: "Acerca de PressurePro LATAM",
-        text: "PressurePro LATAM revoluciona el mantenimiento de neumáticos, brindando a los conductores y los responsables de flotas todo tipo de datos en tiempo real sobre el rendimiento de los neumáticos. PressurePro LATAM agrega seguridad y ahorro en cualquier camino que recorra."
+        text: "PressurePro LATAM revoluciona el mantenimiento de neumáticos, brindando a los conductores y los responsables de flotas todo tipo de datos en tiempo real sobre el rendimiento de los neumáticos. PressurePro LATAM agrega seguridad y ahorro en cualquier camino que recorra. Desde 1991, PressurePro ha sido líder en tecnología de monitoreo de neumáticos, brindando soluciones innovadoras para la seguridad y eficiencia de su flota. PressurePro LATAM es el distribuidor exclusivo para América Latina de PressurePro, líder en tecnología de monitoreo de presión de neumáticos."
     },
     explore: {
         title: "Mercados",

@@ -9,7 +9,7 @@ const World = () => {
   const { translations } = useContext(LanguageContext);
 
   return (
-    <section className='sm:p-16 xs:p-8 px-6 py-12 relative z-10'>
+    <section id='world' className='sm:p-16 xs:p-8 px-6 py-8 relative z-10'>
       <motion.div
         variants={staggerContainer}
         initial='hidden'

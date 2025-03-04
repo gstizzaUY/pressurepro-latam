@@ -19,7 +19,7 @@ const Hero = () => {
   const textY = useTransform(scrollYProgress, [0, 1], ['0%', '20%']);
 
   return (
-    <section>
+    <section id='hero'>
       <motion.div
         variants={staggerContainer}
         initial='hidden'
@@ -75,7 +75,7 @@ const Hero = () => {
               <img
                 src='/stamp.png'
                 alt='stamp'
-                className='sm:w-[155px] w-[80px] sm:h-[155px] h-[80px] object-contain'
+                className='sm:w-[90px] w-[60px] sm:h-[155px] h-[80px] object-contain'
               />
             </div>
           </a>

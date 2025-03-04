@@ -8,7 +8,7 @@ const Feedback = () => {
   const { translations } = useContext(LanguageContext);
 
   return (
-    <section className='sm:p-16 xs:p-8 px-6 py-12 relative z-10'>
+    <section id='feedback' className='sm:p-16 xs:p-8 px-6 py-12 relative z-10'>
       <motion.div
         variants={staggerContainer}
         initial='hidden'

@@ -1,13 +1,22 @@
 import { insights } from "@/constants/data";
 
 export default {
+    navbar: {
+        about: 'About PressurePro LATAM',
+        explore: 'Markets',
+        getStarted: 'Get Started',
+        whatsNew: 'Why PressurePro',
+        world: 'Representation',
+        insights: 'Products',
+        feedback: 'Contact'
+    },
     hero: {
         title: "PressurePro LATAM",
         subtitle: "Real-time tire monitoring"
     },
     about: {
         title: "About PressurePro LATAM",
-        text: "PressurePro LATAM is revolutionizing tire maintenance, providing drivers and fleet managers with all kinds of real-time data on tire performance. PressurePro LATAM adds safety and savings to any road you travel."
+        text: "PressurePro LATAM is revolutionizing tire maintenance, providing drivers and fleet managers with all kinds of real-time data on tire performance. PressurePro LATAM adds safety and savings to any road you travel. Since 1991, PressurePro has been a leader in tire monitoring technology, providing innovative solutions for the safety and efficiency of your fleet. PressurePro LATAM is the exclusive distributor for Latin America of PressurePro, a leader in tire pressure monitoring technology."
     },
     explore: {
         title: "Markets",

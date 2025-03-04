@@ -9,7 +9,7 @@ const About = () => {
   const { translations } = useContext(LanguageContext);
   
   return (
-    <section className='sm:p-16 xs:p-8 px-6 py-12 relative z-10'>
+    <section id='about' className='sm:p-16 xs:p-8 px-6 py-12 relative z-10'>
       <div className='gradient-02 z-0'/>
       <motion.div
         variants={staggerContainer}
@@ -19,7 +19,7 @@ const About = () => {
           once: false,
           amount: 0.25
         }}
-        className='2xl:max-w-[1280px] w-full mx-auto flex justify-center items-center flex-col'
+        className='2xl:max-w-[1280px] w-full mx-auto flex justify-center items-center flex-col py-48 my-5'
       >
         <TypingText title={`| ${translations.about.title}`} textStyles='text-center'/>
         <motion.p
@@ -29,12 +29,6 @@ const About = () => {
           <span className='font-extrabold text-white'>{translations.about.companyName} </span>
           {translations.about.text}
         </motion.p>
-        <motion.img
-          variants={fadeIn('up', 'tween', 0.3, 1)}
-          src='/arrow-down.svg'
-          alt='arrow down'
-          className='w-[18px] h-[28px] object-contain mt-[28px]'
-        />
       </motion.div>
     </section>
   );
