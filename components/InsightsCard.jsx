@@ -91,18 +91,54 @@ const InsightsCard = ({ imgUrl, title, description, index, specs, specsUrl }) =>
           </div>
         </div>
 
-        {/* Contenido de texto */}
-        <div className='w-full flex justify-between items-center'>
+        {/* Contenido de texto y botón */}
+        <div className='w-full flex flex-col md:flex-row justify-between md:items-center md:gap-6 mt-4 md:mt-0'>
+          {/* Texto descriptivo */}
           <div className='flex-1 md:ml-[62px] flex flex-col max-w-[650px]'>
-            <h4 className='font-normal lg:text-[42px] text-[24px] text-white'>{title}</h4>
-            <p className='mt-[16px] font-normal lg:text-[20px] text-[14px] text-secondary-white'>
+            <h4 className='font-normal lg:text-[42px] text-[26px] text-white leading-tight'>
+              {title}
+            </h4>
+            <p className='mt-[16px] font-normal lg:text-[20px] text-[16px] text-secondary-white leading-relaxed tracking-wide opacity-90'>
               {description}
             </p>
-            {/* Se eliminó el botón de texto para las especificaciones */}
+            
+            {/* Botón de descarga móvil - Solo visible en móviles */}
+            <div className="flex flex-row items-center justify-center mt-8 md:hidden">
+              <div
+                className={`flex items-center justify-center w-[60px] h-[60px] rounded-full bg-transparent border-[2px] border-white cursor-pointer transition-all duration-300 ${isArrowClicked ? 'scale-95' : ''
+                  }`}
+                onMouseEnter={() => setIsArrowHovered(true)}
+                onMouseLeave={() => setIsArrowHovered(false)}
+                onClick={() => {
+                  setIsArrowClicked(true);
+                  window.open(specsUrl, '_blank', 'noopener,noreferrer');
+                }}
+                title="Descargar especificaciones"
+              >
+                {/* Ícono de descarga */}
+                <motion.svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-[40%] h-[40%]"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="white"
+                  strokeWidth="2"
+                  animate={{
+                    y: isArrowHovered ? 2 : 0,
+                    transition: { duration: 0.3 }
+                  }}
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                </motion.svg>
+              </div>
+              <p className="ml-4 text-white text-sm font-light tracking-wide opacity-80 hover:opacity-100 transition-opacity">
+                {translations.insights?.downloadSpecs || "Descargar especificaciones"}
+              </p>
+            </div>
           </div>
 
-          {/* Botón de descarga (solo escritorio) con texto */}
-          <div className="lg:flex hidden flex-col items-center">
+          {/* Botón de descarga desktop - Solo visible en desktop */}
+          <div className="hidden md:flex md:flex-col items-center justify-center">
             <div
               className={`flex items-center justify-center w-[100px] h-[100px] rounded-full bg-transparent border-[2px] border-white cursor-pointer transition-all duration-300 ${isArrowClicked ? 'scale-95' : ''
                 }`}
@@ -130,7 +166,6 @@ const InsightsCard = ({ imgUrl, title, description, index, specs, specsUrl }) =>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
               </motion.svg>
             </div>
-            {/* Texto debajo del botón */}
             <p className="mt-2 text-white text-xs font-light text-opacity-70 hover:text-opacity-100 transition-opacity text-center">
               {translations.insights?.downloadSpecs || "Descargar especificaciones"}
             </p>
