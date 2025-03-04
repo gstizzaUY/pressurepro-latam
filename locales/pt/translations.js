@@ -68,6 +68,7 @@ export default {
     insights: {
         typingTex: "Produtos",
         title: "Nossos Produtos",
+        downloadSpecs: "Baixar Especificações",
         products: [
             {
                 imgUrl: '/planet-06.png',

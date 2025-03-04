@@ -9,7 +9,7 @@ const World = () => {
   const { translations } = useContext(LanguageContext);
 
   return (
-    <section id='world' className='sm:p-16 xs:p-8 px-6 py-8 relative z-10'>
+    <section id='world' className='sm:p-16 xs:p-8 px-6 py-12 relative z-10'>
       <motion.div
         variants={staggerContainer}
         initial='hidden'
@@ -43,13 +43,16 @@ const World = () => {
               className='w-full h-full object-contain'
             />
             {/* Personas superpuestas con posiciones relativas */}
-            <div className='absolute bottom-[10%] right-[10%] w-[8vw] h-[8vw] sm:w-[10vw] sm:h-[10vw] min-w-[30px] min-h-[30px] sm:min-w-[40px] sm:min-h-[40px] max-w-[70px] max-h-[70px] p-[6px] rounded-full bg-[#5d6680]'>
+            <div className='absolute bottom-[20%] right-[5%] w-[8vw] h-[8vw] sm:w-[10vw] sm:h-[10vw] min-w-[30px] min-h-[30px] sm:min-w-[40px] sm:min-h-[40px] max-w-[70px] max-h-[70px] p-[6px] rounded-full bg-[#5d6680]'>
               <img src='people-01.png' alt='people' className='w-full h-full' />
             </div>
-            <div className='absolute top-[20%] left-[20%] w-[8vw] h-[8vw] sm:w-[10vw] sm:h-[10vw] min-w-[30px] min-h-[30px] sm:min-w-[40px] sm:min-h-[40px] max-w-[70px] max-h-[70px] p-[6px] rounded-full bg-[#5d6680]'>
+            <div className='absolute top-[30%] left-[15%] w-[8vw] h-[8vw] sm:w-[10vw] sm:h-[10vw] min-w-[30px] min-h-[30px] sm:min-w-[40px] sm:min-h-[40px] max-w-[70px] max-h-[70px] p-[6px] rounded-full bg-[#5d6680]'>
               <img src='people-01.png' alt='people' className='w-full h-full' />
             </div>
-            <div className='absolute top-[30%] left-[40%] w-[8vw] h-[8vw] sm:w-[10vw] sm:h-[10vw] min-w-[30px] min-h-[30px] sm:min-w-[40px] sm:min-h-[40px] max-w-[70px] max-h-[70px] p-[6px] rounded-full bg-[#5d6680]'>
+            <div className='absolute top-[25%] left-[20%] w-[8vw] h-[8vw] sm:w-[10vw] sm:h-[10vw] min-w-[30px] min-h-[30px] sm:min-w-[40px] sm:min-h-[40px] max-w-[70px] max-h-[70px] p-[6px] rounded-full bg-[#5d6680]'>
+              <img src='people-01.png' alt='people' className='w-full h-full' />
+            </div>
+            <div className='absolute top-[25%] left-[40%] w-[8vw] h-[8vw] sm:w-[10vw] sm:h-[10vw] min-w-[30px] min-h-[30px] sm:min-w-[40px] sm:min-h-[40px] max-w-[70px] max-h-[70px] p-[6px] rounded-full bg-[#5d6680]'>
               <img src='people-01.png' alt='people' className='w-full h-full' />
             </div>
             <div className='absolute bottom-[20%] left-[10%] w-[20vw] h-[10vw] sm:w-[25vw] sm:h-[12vw] min-w-[120px] min-h-[50px] sm:min-w-[150px] sm:min-h-[70px] max-w-[230px] max-h-[100px] p-[8px] sm:p-[10px]'>

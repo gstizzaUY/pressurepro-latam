@@ -4,10 +4,31 @@ import { fadeIn } from '@/utils/motion'
 import { LanguageContext } from '../context/LanguageContext';
 
 const InsightsCard = ({ imgUrl, title, description, index, specs, specsUrl }) => {
+  const { translations } = useContext(LanguageContext);
   const [isImageOpen, setIsImageOpen] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const [isArrowHovered, setIsArrowHovered] = useState(false);
   const [isArrowClicked, setIsArrowClicked] = useState(false);
+  const [navbarHeight, setNavbarHeight] = useState(0);
+
+  // Calcular la altura del navbar al montar el componente
+  useEffect(() => {
+    // Buscamos el elemento navbar
+    const navbarElement = document.querySelector('nav');
+    if (navbarElement) {
+      setNavbarHeight(navbarElement.offsetHeight);
+    }
+
+    // Actualizar en resize
+    const handleResize = () => {
+      if (navbarElement) {
+        setNavbarHeight(navbarElement.offsetHeight);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   // Bloquear el scroll cuando el modal está abierto
   useEffect(() => {
@@ -17,13 +38,12 @@ const InsightsCard = ({ imgUrl, title, description, index, specs, specsUrl }) =>
       document.body.style.overflow = 'auto';
     }
 
-    // Limpieza al desmontar el componente
     return () => {
       document.body.style.overflow = 'auto';
     };
   }, [isImageOpen]);
 
-  // Efecto para restablecer el estado de clic de la flecha después de un breve tiempo
+  // Restablecer el estado de clic de la flecha
   useEffect(() => {
     if (isArrowClicked) {
       const timer = setTimeout(() => {
@@ -35,11 +55,13 @@ const InsightsCard = ({ imgUrl, title, description, index, specs, specsUrl }) =>
 
   return (
     <>
+      {/* Card principal */}
       <motion.div
         variants={fadeIn('up', 'spring', index * 0.5, 1)}
         className='flex md:flex-row flex-col gap-4 mb-9'
       >
-        <div 
+        {/* Imagen con hover effect */}
+        <div
           className="relative cursor-pointer"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
@@ -47,21 +69,20 @@ const InsightsCard = ({ imgUrl, title, description, index, specs, specsUrl }) =>
         >
           <img
             src={imgUrl}
-            alt='planet'
+            alt='product'
             className='md:w-[290px] w-full h-[270px] rounded-[32px] object-cover transition-all duration-300 hover:brightness-110'
           />
-          <div 
-            className={`absolute inset-0 flex items-center justify-center rounded-[32px] bg-black bg-opacity-40 transition-opacity duration-300 ${
-              isHovered ? 'opacity-100' : 'opacity-0'
-            }`}
+          <div
+            className={`absolute inset-0 flex items-center justify-center rounded-[32px] bg-black bg-opacity-40 transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'
+              }`}
           >
             <div className="w-12 h-12 rounded-full bg-white bg-opacity-70 flex items-center justify-center">
-              <svg 
-                xmlns="http://www.w3.org/2000/svg" 
-                fill="none" 
-                viewBox="0 0 24 24" 
-                strokeWidth={1.5} 
-                stroke="currentColor" 
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
                 className="w-6 h-6"
               >
                 <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6" />
@@ -69,81 +90,119 @@ const InsightsCard = ({ imgUrl, title, description, index, specs, specsUrl }) =>
             </div>
           </div>
         </div>
+
+        {/* Contenido de texto */}
         <div className='w-full flex justify-between items-center'>
           <div className='flex-1 md:ml-[62px] flex flex-col max-w-[650px]'>
             <h4 className='font-normal lg:text-[42px] text-[24px] text-white'>{title}</h4>
             <p className='mt-[16px] font-normal lg:text-[20px] text-[14px] text-secondary-white'>
               {description}
             </p>
-            <a
-              href={specsUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className='mt-4 inline-block bg-white text-black px-4 py-2 rounded-lg hover:bg-opacity-90 transition-all text-sm text-center'
-            >
-              {specs}
-            </a>
+            {/* Se eliminó el botón de texto para las especificaciones */}
           </div>
-          <div 
-            className={`lg:flex hidden items-center justify-center w-[100px] h-[100px] rounded-full bg-transparent border-[2px] border-white cursor-pointer transition-all duration-300 ${
-              isArrowHovered ? '' : ''
-            } ${isArrowClicked ? 'scale-95' : ''}`}
-            onMouseEnter={() => setIsArrowHovered(true)}
-            onMouseLeave={() => setIsArrowHovered(false)}
-            onClick={() => {
-              setIsArrowClicked(true);
-              window.open(specsUrl, '_blank', 'noopener,noreferrer');
-            }}
-          >
-            <motion.img
-              animate={{
-                x: isArrowHovered ? 5 : 0,
-                transition: { duration: 0.3 }
+
+          {/* Botón de descarga (solo escritorio) con texto */}
+          <div className="lg:flex hidden flex-col items-center">
+            <div
+              className={`flex items-center justify-center w-[100px] h-[100px] rounded-full bg-transparent border-[2px] border-white cursor-pointer transition-all duration-300 ${isArrowClicked ? 'scale-95' : ''
+                }`}
+              onMouseEnter={() => setIsArrowHovered(true)}
+              onMouseLeave={() => setIsArrowHovered(false)}
+              onClick={() => {
+                setIsArrowClicked(true);
+                window.open(specsUrl, '_blank', 'noopener,noreferrer');
               }}
-              src='arrow.svg'
-              alt='arrow'
-              className='w-[40%] h-[40%] object-contain transition-all duration-300'
-            />
+              title="Descargar especificaciones"
+            >
+              {/* Ícono de descarga */}
+              <motion.svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-[40%] h-[40%]"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="white"
+                strokeWidth="2"
+                animate={{
+                  y: isArrowHovered ? 2 : 0,
+                  transition: { duration: 0.3 }
+                }}
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+              </motion.svg>
+            </div>
+            {/* Texto debajo del botón */}
+            <p className="mt-2 text-white text-xs font-light text-opacity-70 hover:text-opacity-100 transition-opacity text-center">
+              {translations.insights?.downloadSpecs || "Descargar especificaciones"}
+            </p>
           </div>
         </div>
       </motion.div>
 
+      {/* Modal de imagen */}
       <AnimatePresence>
         {isImageOpen && (
-          <>
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className='fixed inset-0 bg-black bg-opacity-90 z-[9999] flex items-center justify-center'
-              onClick={() => setIsImageOpen(false)}
-            >
-              <div className="relative inline-block">
-                <motion.img
-                  initial={{ scale: 0.5 }}
-                  animate={{ scale: 1 }}
-                  exit={{ scale: 0.5 }}
-                  src={imgUrl}
-                  alt='planet'
-                  className='max-w-[90%] max-h-[90vh] object-contain rounded-[32px] border-4 border-white'
-                />
-                <button
-                  className='absolute top-6 right-6 w-8 h-8 bg-white bg-opacity-80 rounded-full flex items-center justify-center cursor-pointer hover:bg-opacity-100 transition-all'
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setIsImageOpen(false);
-                  }}
-                  style={{ transform: 'translate(-8px, 8px)' }}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className='fixed inset-0 z-[9999] bg-black/90 flex items-center justify-center'
+            style={{
+              top: `${navbarHeight}px`,
+              paddingBottom: navbarHeight
+            }}
+            onClick={() => setIsImageOpen(false)}
+          >
+            {/* Contenedor de la imagen */}
+            <div className="w-full max-w-4xl px-4 relative">
+              <div className="w-full flex items-center justify-center">
+                {/* Imagen */}
+                <motion.div
+                  initial={{ scale: 0.5, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  exit={{ scale: 0.5, opacity: 0 }}
+                  className="relative"
                 >
-                  <span className='text-black text-xl'>&times;</span>
-                </button>
+                  <img
+                    src={imgUrl}
+                    alt='product'
+                    className='max-w-full max-h-[80vh] object-contain rounded-[32px] border-4 border-white'
+                  />
+
+                  {/* Botón de cierre */}
+                  <button
+                    className='absolute top-4 right-4 w-10 h-10 bg-black/70 backdrop-blur-sm rounded-full 
+                              flex items-center justify-center cursor-pointer hover:bg-black/90
+                              transition-all border border-white/30 z-10'
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setIsImageOpen(false);
+                    }}
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="white"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="w-6 h-6"
+                    >
+                      <line x1="18" y1="6" x2="6" y2="18"></line>
+                      <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                  </button>
+                </motion.div>
               </div>
-            </motion.div>
-          </>
+              <p className="text-white text-sm font-light text-opacity-80 hover:text-opacity-100 transition-opacity text-center">
+                {translations.insights?.downloadSpecs || "Descargar especificaciones"}
+              </p>
+            </div>
+          </motion.div>
         )}
       </AnimatePresence>
     </>
-  )
-}
+  );
+};
 
-export default InsightsCard
+export default InsightsCard;
