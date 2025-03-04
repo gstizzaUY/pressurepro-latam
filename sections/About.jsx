@@ -19,7 +19,7 @@ const About = () => {
           once: false,
           amount: 0.25
         }}
-        className='2xl:max-w-[1280px] w-full mx-auto flex justify-center items-center flex-col py-48 my-5'
+        className='2xl:max-w-[1280px] w-full mx-auto flex justify-center items-center flex-col'
       >
         <TypingText title={`| ${translations.about.title}`} textStyles='text-center'/>
         <motion.p

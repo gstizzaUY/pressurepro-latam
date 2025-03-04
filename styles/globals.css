@@ -107,3 +107,35 @@
   -webkit-backdrop-filter: blur(4px);
   border: 1px solid rgba(255, 255, 255, 0.18);
 }
+
+/* Estilos mejorados para la barra de desplazamiento */
+.modal-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.modal-scrollbar::-webkit-scrollbar-track {
+  background: rgba(26, 35, 46, 0.2);
+  margin-top: 4px;
+  margin-bottom: 4px;
+  border-radius: 10px;
+}
+
+.modal-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(138, 75, 175, 0.5);
+  border-radius: 10px;
+  border: 1px solid rgba(26, 35, 46, 0.1);
+}
+
+.modal-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(138, 75, 175, 0.7);
+}
+
+/* Para Firefox */
+.modal-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(138, 75, 175, 0.5) rgba(26, 35, 46, 0.1);
+}
+
+.text-shadow {
+  text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.8);
+}
