@@ -39,6 +39,62 @@ export default {
             'world-5': "Em ambientes industriais, nossas soluções melhoram a confiabilidade dos equipamentos e reduzem riscos em operações contínuas onde a segurança é prioritária.",
             'world-6': "No transporte, nosso sistema de monitoramento de pneus otimiza a vida útil de equipamentos de alto custo e melhora a segurança operacional em ambientes extremos."
         },
+        modalTitle: {
+            'world-1': "Mineração - Soluções Avançadas",
+            'world-2': "Agricultura - Tecnologia de Precisão",
+            'world-3': "Florestal - Monitoramento para Terrenos Difíceis",
+            'world-4': "Portuário - Otimização de Operações",
+            'world-5': "Industrial - Eficiência e Segurança",
+            'world-6': "Transporte - Sistemas de Monitoramento"
+        },
+        modalDescription: {
+            'world-1': "Nossas soluções avançadas para o setor de mineração detectam problemas de pressão e temperatura em tempo real, antecipando riscos potenciais em pneus de equipamentos críticos. Este monitoramento constante permite intervenção antes que ocorram avarias maiores, estendendo a vida útil da borracha e protegendo investimentos significativos.",
+            'world-2': "A tecnologia PressurePro fornece dados críticos para maquinaria agrícola, permitindo ajustes precisos que protegem as culturas e otimizam o desempenho do equipamento. Nossos sistemas monitoram constantemente a pressão durante trabalhos intensivos, onde cada hora de operação é crucial para o sucesso da temporada.",
+            'world-3': "Desenvolvemos tecnologia especializada que suporta as exigências únicas do trabalho florestal, onde os pneus enfrentam obstáculos constantes e superfícies irregulares. Nosso sistema de monitoramento mantém a produtividade em áreas onde uma falha pode significar longos tempos de espera e altos custos de recuperação.",
+            'world-4': "Nossa tecnologia responde às exigências da indústria portuária moderna, onde equipamentos de movimentação de carga operam sob pressão constante. O monitoramento em tempo real permite aos operadores identificar problemas potenciais antes que afetem os rígidos cronogramas de carga e descarga, reduzindo significativamente os custos devido a atrasos.",
+            'world-5': "Instalações industriais modernas requerem soluções de monitoramento que mantenham a continuidade operacional. Nossa tecnologia se integra perfeitamente aos protocolos de manutenção preventiva, alertando sobre variações de pressão que poderiam comprometer a segurança do pessoal e a integridade dos equipamentos especializados.",
+            'world-6': "Os profissionais de transporte enfrentam desafios constantes em estradas que testam seus veículos. Nosso sistema fornece informações cruciais que ajudam a programar manutenções sem interromper rotas planejadas, garantindo entregas pontuais enquanto estende a vida útil da frota."
+        },
+        modalAdditional: {
+            'world-1': "A tecnologia PressurePro permite configurar parâmetros específicos para cada tipo de maquinário de mineração, considerando fatores como carga, velocidade e condições do terreno. Esta abordagem personalizada maximiza o retorno do investimento ao reduzir as despesas com pneus em até 20%, um dos maiores custos operacionais na indústria de mineração depois do combustível.",
+            'world-2': "Nossos dispositivos ajudam a prevenir a prejudicial compactação do solo causada por pneus com pressão incorreta, protegendo tanto a terra arável quanto o investimento em maquinaria. Agricultores que utilizam o PressurePro relatam até 15% de melhoria na tração e redução significativa no desgaste prematuro de componentes mecânicos.",
+            'world-3': "A conectividade avançada de nossos sistemas permite o monitoramento mesmo em áreas de difícil acesso, enviando alertas precoces antes que os pneus sofram danos irreversíveis. Esta capacidade é especialmente valiosa em operações florestais onde as máquinas trabalham em locais remotos com acesso limitado a serviços de manutenção.",
+            'world-4': "Adaptamos nossas soluções à variedade de equipamentos utilizados em terminais portuários, desde reach stackers até RTGs, onde cada tipo de máquina enfrenta diferentes padrões de desgaste. A implementação do PressurePro em ambientes portuários demonstrou reduzir incidentes relacionados a pneus em frotas de alta demanda em até 30%.",
+            'world-5': "Em ambientes industriais com operação contínua, nosso sistema se integra com plataformas IoT existentes, centralizando informações para uma gestão eficiente de ativos. Esta conectividade permite análises preditivas que identificam padrões de desgaste antes que comprometam a produção, especialmente valioso em operações de três turnos.",
+            'world-6': "Oferecemos configurações específicas para diferentes tipos de veículos de transporte, desde caminhões de longa distância até frotas de distribuição urbana. Os gestores de frota podem estabelecer parâmetros personalizados para cada rota e carga, recebendo alertas específicos que permitem decisões informadas para otimizar cada quilômetro percorrido."
+        },
+        benefit1: {
+            'world-1': "Eficiência",
+            'world-2': "Eficiência",
+            'world-3': "Eficiência",
+            'world-4': "Eficiência",
+            'world-5': "Eficiência",
+            'world-6': "Eficiência"
+        },
+        benefit2: {
+            'world-1': "Economia",
+            'world-2': "Economia",
+            'world-3': "Economia",
+            'world-4': "Economia",
+            'world-5': "Economia",
+            'world-6': "Economia"
+        },
+        benefit3: {
+            'world-1': "Segurança",
+            'world-2': "Segurança",
+            'world-3': "Segurança",
+            'world-4': "Segurança",
+            'world-5': "Segurança",
+            'world-6': "Segurança"
+        },
+        benefit4: {
+            'world-1': "Inovação",
+            'world-2': "Inovação",
+            'world-3': "Inovação",
+            'world-4': "Inovação",
+            'world-5': "Inovação",
+            'world-6': "Inovação"
+        },
     },
     getStarted: {
         title: "Comece agora",

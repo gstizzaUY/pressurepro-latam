@@ -50,11 +50,7 @@ const Explore = () => {
               active={active}
               handleClick={setActive}
               isMobileView={isMobile}
-              translations={{
-                ...translations.explore.industries,
-                showInfo: translations.explore.showInfo || '+ Info',
-                closeInfo: translations.explore.closeInfo || 'Cerrar'
-              }}
+              translations={translations} // Pasamos el objeto completo de traducciones
               marketInfo={translations.explore.marketInfo}
             />
           ))}

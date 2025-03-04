@@ -68,7 +68,7 @@ const ExploreCard = ({ id, imgUrl, title, index, active, handleClick, translatio
       {(!isMobileView && active !== id) ? (
         <div className='flex flex-col items-center absolute z-0 lg:bottom-20 bottom-10'>
           <h3 className='font-semibold sm:text-[26px] text-[18px] text-white lg:rotate-[-90deg] lg:origin-[0,0] text-center'>
-            {translations[id]}
+            {translations.explore.industries[id]}
           </h3>
         </div>
       ) : (
@@ -87,12 +87,12 @@ const ExploreCard = ({ id, imgUrl, title, index, active, handleClick, translatio
               className="px-3 py-1 md:px-4 md:py-2 rounded-full bg-gradient-to-r from-purple-500 to-indigo-600 text-white text-sm md:text-base font-medium glassmorphism"
               onClick={handleModalClick}
             >
-              {translations.showInfo || '+ Info'}
+              {translations.explore.showInfo || '+ Info'}
             </motion.button>
           </div>
 
           <h2 className='mt-[12px] md:mt-[24px] font-semibold text-[18px] sm:text-[24px] md:text-[32px] text-white'>
-            {translations[id]}
+            {translations.explore.industries[id]}
           </h2>
 
           {/* Información que se muestra por defecto */}
@@ -143,7 +143,7 @@ const ExploreCard = ({ id, imgUrl, title, index, active, handleClick, translatio
                   <div className="relative w-full h-56 md:h-72 lg:h-80 overflow-hidden">
                     <img
                       src={imgUrl}
-                      alt={translations[id]}
+                      alt={translations.explore.industries[id]}
                       className="w-full h-full object-cover"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[rgba(0,0,0,0.8)] via-[rgba(0,0,0,0.4)] to-[rgba(0,0,0,0.2)]"></div>
@@ -154,7 +154,7 @@ const ExploreCard = ({ id, imgUrl, title, index, active, handleClick, translatio
                         <div className="w-[40px] h-[40px] md:w-[50px] md:h-[50px] rounded-[24px] glassmorphism flex items-center justify-center backdrop-blur-md">
                           <img src="/pp-white.png" alt="logo" className="w-1/2 h-1/2 object-contain" />
                         </div>
-                        <h3 className="text-xl md:text-2xl font-bold text-white drop-shadow-lg">{translations[id]}</h3>
+                        <h3 className="text-xl md:text-2xl font-bold text-white drop-shadow-lg">{translations.explore.industries[id]}</h3>
                       </div>
                       <button
                         className="text-white p-2 rounded-full bg-[rgba(0,0,0,0.3)] backdrop-blur-sm hover:bg-[rgba(255,255,255,0.2)] transition-colors glassmorphism"
@@ -168,7 +168,7 @@ const ExploreCard = ({ id, imgUrl, title, index, active, handleClick, translatio
 
                     {/* Íconos de beneficios posicionados en la parte inferior de la imagen - AHORA MÁS GRANDES Y CON ANIMACIÓN */}
                     <div className="absolute bottom-0 left-0 right-0 py-4 md:py-5 px-4 md:px-6 bg-gradient-to-t from-[rgba(0,0,0,0.9)] to-transparent">
-                      <div className="grid grid-cols-5 gap-1 md:gap-3">
+                      <div className="grid grid-cols-4 gap-1 md:gap-3">
                         {/* Iconos animados y más grandes en color blanco */}
                         <motion.div 
                           custom={0}
@@ -186,7 +186,7 @@ const ExploreCard = ({ id, imgUrl, title, index, active, handleClick, translatio
                             </svg>
                           </motion.div>
                           <span className="text-xs md:text-sm text-center text-white text-shadow font-medium">
-                            {translations.benefit1?.[id] || "Eficiencia"}
+                            {translations.explore.benefit1?.[id] || "Eficiencia"}
                           </span>
                         </motion.div>
 
@@ -207,7 +207,7 @@ const ExploreCard = ({ id, imgUrl, title, index, active, handleClick, translatio
                             </svg>
                           </motion.div>
                           <span className="text-xs md:text-sm text-center text-white text-shadow font-medium">
-                            {translations.benefit2?.[id] || "Ahorro"}
+                            {translations.explore.benefit2?.[id] || "Ahorro"}
                           </span>
                         </motion.div>
 
@@ -227,7 +227,7 @@ const ExploreCard = ({ id, imgUrl, title, index, active, handleClick, translatio
                             </svg>
                           </motion.div>
                           <span className="text-xs md:text-sm text-center text-white text-shadow font-medium">
-                            {translations.benefit3?.[id] || "Seguridad"}
+                            {translations.explore.benefit3?.[id] || "Seguridad"}
                           </span>
                         </motion.div>
 
@@ -247,11 +247,11 @@ const ExploreCard = ({ id, imgUrl, title, index, active, handleClick, translatio
                             </svg>
                           </motion.div>
                           <span className="text-xs md:text-sm text-center text-white text-shadow font-medium">
-                            {translations.benefit4?.[id] || "Innovación"}
+                            {translations.explore.benefit4?.[id] || "Innovación"}
                           </span>
                         </motion.div>
 
-                        <motion.div 
+                        {/* <motion.div 
                           custom={4}
                           variants={iconVariants}
                           initial="hidden"
@@ -268,9 +268,9 @@ const ExploreCard = ({ id, imgUrl, title, index, active, handleClick, translatio
                             </svg>
                           </motion.div>
                           <span className="text-xs md:text-sm text-center text-white text-shadow font-medium">
-                            {translations.benefit5?.[id] || "Análisis"}
+                            {translations.explore.benefit5?.[id] || "Análisis"}
                           </span>
-                        </motion.div>
+                        </motion.div> */}
                       </div>
                     </div>
                   </div>
@@ -287,11 +287,11 @@ const ExploreCard = ({ id, imgUrl, title, index, active, handleClick, translatio
                       {/* Descripción detallada */}
                       <div className="prose prose-invert max-w-none mb-8">
                         <h4 className="text-lg md:text-xl font-semibold mb-3 text-white">
-                          {translations.modalTitle?.[id] || `${translations[id]} - Soluciones`}
+                          {translations.explore.modalTitle?.[id] || `${translations.explore.industries[id]} - Soluciones`}
                         </h4>
                         <p className="text-gray-200 text-sm md:text-base mb-4">
-                          {translations.modalDescription?.[id] ||
-                            `PressurePro ofrece soluciones avanzadas para el mercado ${translations[id]}, 
+                          {translations.explore.modalDescription?.[id] ||
+                            `PressurePro ofrece soluciones avanzadas para el mercado ${translations.explore.industries[id]}, 
                             optimizando procesos, reduciendo costos y mejorando la eficiencia operativa.
                             Nuestros sistemas se adaptan a las necesidades específicas de este sector, 
                             proporcionando monitoreo en tiempo real y análisis precisos para una toma de 
@@ -299,9 +299,9 @@ const ExploreCard = ({ id, imgUrl, title, index, active, handleClick, translatio
                           }
                         </p>
                         <p className="text-gray-300 text-sm md:text-base">
-                          {translations.modalAdditional?.[id] ||
+                          {translations.explore.modalAdditional?.[id] ||
                             `Implementamos tecnología de vanguardia específicamente diseñada para enfrentar 
-                            los desafíos únicos del sector ${translations[id].toLowerCase()}, garantizando 
+                            los desafíos únicos del sector ${translations.explore.industries[id].toLowerCase()}, garantizando 
                             resultados óptimos y un retorno de inversión significativo.`
                           }
                         </p>
@@ -314,7 +314,7 @@ const ExploreCard = ({ id, imgUrl, title, index, active, handleClick, translatio
                           whileTap={{ scale: 0.95 }}
                           className="px-6 py-3 rounded-full bg-gradient-to-r from-purple-500 to-indigo-600 text-white font-medium glassmorphism shadow-md"
                         >
-                          {translations.contactUs || "Contactar ahora"}
+                          {translations.footer?.contact || "Contactar ahora"}
                         </motion.button> */}
                       </div>
                     </div>
