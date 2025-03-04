@@ -33,19 +33,22 @@ const Hero = () => {
         <motion.div
           ref={ref}
           variants={slideIn('right', 'tween', 0.2, 1)}
-          className='relative w-full md:-mt-[20px] -mt-[30px] overflow-hidden'
+          className='relative w-full md:-mt-[10px] -mt-[20px] pt-1 overflow-hidden px-4 sm:px-6 md:px-8'
         >
-          {/* Capa de imagen con efecto parallax */}
-          <motion.div
-            style={{ y: imageY }}
-            className="w-full h-full"
-          >
-            <img
-              src='/semi-camion.jpg'
-              alt='futuristic_mining_truck_yellow.png'
-              className='w-full h-[350px] sm:h-[500px] md:h-[600px] lg:h-[700px] xl:h-[800px] object-cover z-0 relative opacity-90 shadow-lg hover:opacity-100 transition-opacity'
-            />
-          </motion.div>
+          {/* Contenedor con bordes redondeados y overflow hidden */}
+          <div className="w-full h-full mt-4 overflow-hidden rounded-3xl">
+            {/* Capa de imagen con efecto parallax */}
+            <motion.div
+              style={{ y: imageY }}
+              className="w-full h-[300px] sm:h-[430px] md:h-[520px] lg:h-[600px] xl:h-[680px]"
+            >
+              <img
+                src='/semi-camion.jpg'
+                alt='futuristic_mining_truck_yellow.png'
+                className='w-full h-full object-cover z-0 relative opacity-90 shadow-lg hover:opacity-100 transition-opacity'
+              />
+            </motion.div>
+          </div>
           
           {/* Capa de texto que se desplaza junto con la imagen */}
           <motion.div 
@@ -71,11 +74,11 @@ const Hero = () => {
 
           {/* Sello que se mantiene fijo en su posición */}
           <a href='#explore'>
-            <div className='w-full flex justify-end sm:-mt-[70px] -mt-[20px] pr-[40px] relative z-[20]'>
+            <div className='w-full flex justify-center sm:-mt-[140px] -mt-[80px] relative z-[20]'>
               <img
                 src='/stamp.png'
                 alt='stamp'
-                className='sm:w-[90px] w-[60px] sm:h-[155px] h-[80px] object-contain'
+                className='sm:w-[85px] w-[55px] sm:h-[145px] h-[75px] object-contain'
               />
             </div>
           </a>
