@@ -5,38 +5,21 @@ import { fadeIn } from '../utils/motion';
 
 const ExploreCard = ({ id, imgUrl, title, index, active, handleClick, translations, marketInfo, isMobileView }) => {
   const [showModal, setShowModal] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
-
-  // Detectar dispositivos móviles
-  useEffect(() => {
-    const checkIfMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    
-    // Verificar al cargar
-    checkIfMobile();
-    
-    // Actualizar al cambiar el tamaño de la ventana
-    window.addEventListener('resize', checkIfMobile);
-    return () => window.removeEventListener('resize', checkIfMobile);
-  }, []);
 
   const handleModalClick = (e) => {
     e.stopPropagation(); // Evita que el click se propague al div padre
     setShowModal(!showModal);
   };
-
-  // Determinar si esta tarjeta debería mostrarse como activa
-  const isActive = isMobileView || active === id;
   
   return (
     <motion.div
       variants={fadeIn('right', 'spring', index * 0.5, 0.75)}
       className={`relative 
         ${isMobileView 
-          ? 'flex-[1] h-[350px] mb-6' 
+          ? 'w-full flex-auto h-[400px] mb-8' 
           : `${active === id ? 'lg:flex-[3.5] flex-[10]' : 'lg:flex-[0.5] flex-[2]'} h-[400px] md:h-[500px] lg:h-[700px]`} 
-        flex items-center justify-center min-w-[170px] transition-[flex] duration-[0.7s] ease-out-flex cursor-pointer`}
+        flex items-center justify-center min-w-[170px] transition-[flex] duration-[0.7s] ease-out-flex cursor-pointer
+        ${isMobileView ? '' : 'hover:opacity-90'}`}
       onClick={() => !isMobileView && handleClick(id)}
     >
       <img
@@ -45,7 +28,7 @@ const ExploreCard = ({ id, imgUrl, title, index, active, handleClick, translatio
         className='absolute w-full h-full object-cover rounded-[24px]'
       />
       
-      {!isActive ? (
+      {(!isMobileView && active !== id) ? (
         <div className='flex flex-col items-center absolute z-0 lg:bottom-20 bottom-10'>
           <h3 className='font-semibold sm:text-[26px] text-[18px] text-white lg:rotate-[-90deg] lg:origin-[0,0] text-center'>
             {translations[id]}

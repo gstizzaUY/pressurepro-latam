@@ -17,11 +17,6 @@ const Explore = () => {
     const checkIfMobile = () => {
       const mobile = window.innerWidth < 768;
       setIsMobile(mobile);
-      
-      // En móviles, mostrar la primera tarjeta por defecto
-      if (mobile && worlds.length > 0) {
-        setActive(worlds[0].id);
-      }
     };
     
     checkIfMobile();
@@ -52,8 +47,9 @@ const Explore = () => {
               key={world.id}
               {...world}
               index={index}
-              active={isMobile ? world.id : active} // En móviles, todas están activas
+              active={active}
               handleClick={setActive}
+              isMobileView={isMobile}
               translations={{
                 ...translations.explore.industries,
                 showInfo: translations.explore.showInfo || '+ Info',
