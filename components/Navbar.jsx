@@ -139,9 +139,13 @@ const Navbar = () => {
               />
             </button>
           </div>
-          <h1 className='font-extrabold text-[18px] sm:text-[26px] leading-[30px] sm:leading-[40px] text-white truncate'>
-            Pressure Pro LATAM
-          </h1>
+          <div className="flex items-center">
+            <img
+              src="/pressurepro-latam-logo.png"
+              alt="Pressure Pro LATAM"
+              className="h-[33px] sm:h-[45px] w-auto object-contain"
+            />
+          </div>
           <motion.div
             className="relative"
             whileTap={{ scale: 0.95 }}
