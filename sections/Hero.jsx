@@ -99,7 +99,7 @@ const Hero = () => {
                     boxShadow: '0 10px 25px -5px rgba(0,0,0,0.3)'
                   }}
                   className="bg-black/20 backdrop-blur-sm p-3 lg:p-4 rounded-lg border border-gray-500 
-                  w-[220px] md:w-[250px] lg:w-[280px] h-[120px] md:h-[140px] lg:h-[160px] 
+                  w-[220px] md:w-[250px] lg:w-[280px] h-[130px] md:h-[140px] lg:h-[180px] 
                   shadow-xl overflow-hidden transform -translate-y-1/2"
                 >
                   <div className="flex flex-col h-full justify-start">
