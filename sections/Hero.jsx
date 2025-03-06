@@ -32,7 +32,7 @@ const Hero = () => {
   const textY = useTransform(scrollYProgress, [0, 1], ['0%', '20%']);
 
   return (
-    <section id='hero' className="w-full overflow-hidden">
+    <section id='hero' className="w-full overflow-hidden pt-[80px] sm:pt-[100px] md:pt-0">
       <motion.div
         variants={staggerContainer}
         initial='hidden'
@@ -46,7 +46,7 @@ const Hero = () => {
         <motion.div
           ref={ref}
           variants={slideIn('right', 'tween', 0.2, 1)}
-          className='relative w-full md:-mt-[10px] -mt-[20px] pt-1 overflow-hidden px-4 sm:px-6 md:px-8'
+          className='relative w-full md:-mt-[10px] mt-0 pt-1 overflow-hidden px-4 sm:px-6 md:px-8'
         >
           {/* Contenedor con bordes redondeados y overflow hidden */}
           <div className="w-full h-full mt-4 overflow-hidden rounded-3xl">
