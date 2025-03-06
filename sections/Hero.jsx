@@ -90,7 +90,7 @@ const Hero = () => {
               </AnimatePresence>
 
               {/* Contenedor para centrar la terminal correctamente */}
-              <div className="absolute w-full flex justify-center top-10 md:top-10 lg:top-8 z-20">
+              <div className="absolute w-full flex justify-center top-[20%] md:top-[22%] lg:top-[18%] z-20">
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{
@@ -98,29 +98,34 @@ const Hero = () => {
                     y: 0,
                     boxShadow: '0 10px 25px -5px rgba(0,0,0,0.3)'
                   }}
-                  className="bg-black/25 backdrop-blur-sm p-3 lg:p-4 rounded-lg border border-gray-500 
-                  w-[220px] md:w-[250px] lg:w-[280px] h-[180px] 
-                  shadow-xl overflow-hidden"
+                  className="bg-black/20 backdrop-blur-sm p-3 lg:p-4 rounded-lg border border-gray-500 
+                  w-[220px] md:w-[250px] lg:w-[280px] h-[120px] md:h-[140px] lg:h-[160px] 
+                  shadow-xl overflow-hidden transform -translate-y-1/2"
                 >
                   <div className="flex flex-col h-full justify-start">
                     {/* Barra de título de la terminal con ícono TPMS */}
-                    <div className="flex items-center justify-between mb-3">
+                    <div className="flex items-center justify-between mb-2 md:mb-3">
                       <div className="flex items-center">
                         <img
                           src='/tpms-icon.png'
                           alt='TPMS icon'
-                          className='w-7 h-7 mr-2 object-contain drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]'
+                          className='w-6 h-6 md:w-7 md:h-7 mr-2 object-contain drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]'
                         />
                         <span className="text-xs md:text-sm text-gray-300 font-semibold">TPMS_MONITOR_V1.2</span>
+                      </div>
+                      <div className="flex gap-1">
+                        <div className="w-1.5 h-1.5 rounded-full bg-red-500"></div>
+                        <div className="w-1.5 h-1.5 rounded-full bg-yellow-500"></div>
+                        <div className="w-1.5 h-1.5 rounded-full bg-green-500"></div>
                       </div>
                     </div>
 
                     {/* Contenido de la terminal con efecto typewriter */}
-                    <div className="flex-1 overflow-y-auto font-mono mt-1">
+                    <div className="flex-1 overflow-y-auto font-mono mt-0 md:mt-1">
                       <pre className="text-xs md:text-sm lg:text-base text-green-400 whitespace-pre-wrap font-bold">{displayText}</pre>
                       {isBlinking && (
                         <span
-                          className="inline-block w-2 h-4 bg-green-400 ml-1 animate-pulse"
+                          className="inline-block w-1.5 md:w-2 h-3.5 md:h-4 bg-green-400 ml-1 animate-pulse"
                           style={{
                             animationDuration: '0.5s',
                             opacity: isBlinking ? 1 : 0,

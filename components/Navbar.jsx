@@ -16,6 +16,13 @@ const Navbar = () => {
   // Nuevo estado para controlar el menú desplegable de idiomas
   const [isLanguageMenuOpen, setIsLanguageMenuOpen] = useState(false);
 
+  // Mapeo de idiomas a banderas
+  const flagImages = {
+    es: '/es.svg',
+    en: '/us.svg',
+    pt: '/br.svg'
+  };
+
   // Efecto para medir la altura del navbar
   useEffect(() => {
     if (navRef.current) {
@@ -152,10 +159,10 @@ const Navbar = () => {
               onClick={() => setIsLanguageMenuOpen(!isLanguageMenuOpen)}
               className="relative z-10 flex items-center space-x-1 group"
             >
-              <div className={`${language === 'es' ? 'opacity-100' : 'opacity-80'} hover:opacity-100 transition-opacity`}>
+              <div className="hover:opacity-100 transition-opacity">
                 <img
-                  src='/es.svg'
-                  alt='Spanish'
+                  src={flagImages[language]}
+                  alt={`${language === 'es' ? 'Spanish' : language === 'en' ? 'English' : 'Portuguese'}`}
                   className='w-[24px] h-[24px] sm:w-[32px] sm:h-[32px] object-contain'
                 />
               </div>
@@ -197,6 +204,23 @@ const Navbar = () => {
                   animate="visible"
                   exit="hidden"
                 >
+                  {/* Español */}
+                  <motion.button
+                    onClick={() => {
+                      changeLanguage('es');
+                      setIsLanguageMenuOpen(false);
+                    }}
+                    className={`block w-full my-1.5 ${language === 'es' ? 'opacity-100' : 'opacity-60'} hover:opacity-100 transition-opacity`}
+                    variants={languageItemVariants}
+                    whileHover={{ scale: 1.05 }}
+                  >
+                    <img
+                      src='/es.svg'
+                      alt='Spanish'
+                      className='w-[24px] h-[24px] sm:w-[32px] sm:h-[32px] object-contain'
+                    />
+                  </motion.button>
+
                   {/* Portugués */}
                   <motion.button
                     onClick={() => {
