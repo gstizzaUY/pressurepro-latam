@@ -1,6 +1,6 @@
 'use client';
-import React, { useEffect, useRef } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion';
+import React, { useEffect, useRef, useState } from 'react'
+import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { slideIn, staggerContainer, textVariant } from '../utils/motion';
 import { useContext } from 'react';
 import { LanguageContext } from '../context/LanguageContext';
@@ -12,6 +12,19 @@ const Hero = () => {
     target: ref,
     offset: ["start start", "end start"]
   });
+  
+  // Configuración del slider
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const images = ['/truck.jpg', '/port-truck.jpg', '/miner-truck.jpg'];
+  
+  // Cambiar la imagen cada 5 segundos
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 5000);
+    
+    return () => clearInterval(interval);
+  }, []);
   
   // Transformamos el valor del scroll para crear el efecto parallax
   const imageY = useTransform(scrollYProgress, [0, 1], ['0%', '20%']);
@@ -37,16 +50,36 @@ const Hero = () => {
         >
           {/* Contenedor con bordes redondeados y overflow hidden */}
           <div className="w-full h-full mt-4 overflow-hidden rounded-3xl">
-            {/* Capa de imagen con efecto parallax */}
+            {/* Capa de imagen con efecto parallax y slider */}
             <motion.div
               style={{ y: imageY }}
-              className="w-full h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px] xl:h-[800px]"
+              className="w-full h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px] xl:h-[800px] relative"
             >
-              <img
-                src='/truck.jpg'
-                alt='futuristic_mining_truck_yellow'
-                className='w-full h-full object-cover object-center z-0 relative opacity-90 shadow-lg hover:opacity-100 transition-opacity'
-              />
+              <AnimatePresence mode="wait">
+                <motion.img
+                  key={currentImageIndex}
+                  src={images[currentImageIndex]}
+                  alt='mining_truck'
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 1 }}
+                  className='w-full h-full object-cover object-center z-0 absolute opacity-90 shadow-lg hover:opacity-100 transition-opacity'
+                />
+              </AnimatePresence>
+              
+              {/* Indicadores de slider */}
+              <div className="absolute bottom-6 left-0 right-0 flex justify-center gap-2 z-20">
+                {images.map((_, index) => (
+                  <div
+                    key={index}
+                    onClick={() => setCurrentImageIndex(index)}
+                    className={`w-3 h-3 rounded-full cursor-pointer transition-all duration-300 ${
+                      index === currentImageIndex ? 'bg-white scale-125' : 'bg-white/50'
+                    }`}
+                  />
+                ))}
+              </div>
             </motion.div>
           </div>
           
