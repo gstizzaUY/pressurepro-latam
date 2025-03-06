@@ -31,27 +31,6 @@ const Hero = () => {
   // También aplicamos el mismo efecto al texto
   const textY = useTransform(scrollYProgress, [0, 1], ['0%', '20%']);
 
-  // Estado para la animación tipo typewriter
-  const [displayText, setDisplayText] = useState('');
-  const fullText = 'HAUL 96 MODERATE\nLOW PRESSURE\n111PSI / 7.7 BAR';
-  const [isBlinking, setIsBlinking] = useState(true);
-
-  // Efecto para la animación de typing (más lento)
-  useEffect(() => {
-    if (displayText.length < fullText.length) {
-      const timeout = setTimeout(() => {
-        setDisplayText(fullText.substring(0, displayText.length + 1));
-      }, 150); // velocidad de escritura más lenta (150ms)
-      return () => clearTimeout(timeout);
-    } else {
-      // Parpadeo después de completar la escritura
-      const blinkInterval = setInterval(() => {
-        setIsBlinking(prev => !prev);
-      }, 800);
-      return () => clearInterval(blinkInterval);
-    }
-  }, [displayText, fullText]);
-
   return (
     <section id='hero' className="w-full h-screen flex flex-col pt-[72px] sm:pt-[80px]">
       <motion.div
@@ -89,67 +68,6 @@ const Hero = () => {
                 />
               </AnimatePresence>
 
-              {/* Contenedor para centrar la terminal correctamente */}
-              <div className="absolute w-full flex justify-center top-[20%] md:top-[22%] lg:top-[18%] z-20">
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{
-                    opacity: 1,
-                    y: 0,
-                    boxShadow: '0 10px 25px -5px rgba(0,0,0,0.3)'
-                  }}
-                  className="bg-black/20 backdrop-blur-sm p-3 lg:p-4 rounded-lg border border-gray-500 
-                  w-[220px] md:w-[250px] lg:w-[280px] h-[130px] md:h-[140px] lg:h-[180px] 
-                  shadow-xl overflow-hidden transform -translate-y-1/2"
-                >
-                  <div className="flex flex-col h-full justify-start">
-                    {/* Barra de título de la terminal con ícono TPMS */}
-                    <div className="flex items-center justify-between mb-2 md:mb-3">
-                      <div className="flex items-center">
-                        <img
-                          src='/tpms-icon.png'
-                          alt='TPMS icon'
-                          className='w-6 h-6 md:w-7 md:h-7 mr-2 object-contain drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]'
-                        />
-                        <span className="text-xs md:text-sm text-gray-300 font-semibold">TPMS_MONITOR_V1.2</span>
-                      </div>
-                      <div className="flex gap-1">
-                        <div className="w-1.5 h-1.5 rounded-full bg-red-500"></div>
-                        <div className="w-1.5 h-1.5 rounded-full bg-yellow-500"></div>
-                        <div className="w-1.5 h-1.5 rounded-full bg-green-500"></div>
-                      </div>
-                    </div>
-
-                    {/* Contenido de la terminal con efecto typewriter */}
-                    <div className="flex-1 overflow-y-auto font-mono mt-0 md:mt-1">
-                      <pre className="text-xs md:text-sm lg:text-base text-green-400 whitespace-pre-wrap font-bold">{displayText}</pre>
-                      {isBlinking && (
-                        <span
-                          className="inline-block w-1.5 md:w-2 h-3.5 md:h-4 bg-green-400 ml-1 animate-pulse"
-                          style={{
-                            animationDuration: '0.5s',
-                            opacity: isBlinking ? 1 : 0,
-                          }}
-                        ></span>
-                      )}
-                    </div>
-                  </div>
-
-                  {/* Efecto de escaneo */}
-                  <motion.div
-                    animate={{
-                      top: ["0%", "100%"],
-                    }}
-                    transition={{
-                      repeat: Infinity,
-                      duration: 1.8,
-                      ease: "linear",
-                    }}
-                    className="absolute left-0 w-full h-[2px] bg-green-400/40"
-                  />
-                </motion.div>
-              </div>
-
               {/* Indicadores de slider */}
               <div className="absolute bottom-6 left-0 right-0 flex justify-center gap-2 z-20">
                 {images.map((_, index) => (
@@ -169,6 +87,13 @@ const Hero = () => {
             style={{ y: textY }}
             className="absolute inset-0 flex flex-col justify-center items-center z-10"
           >
+            <motion.img 
+              variants={textVariant(1.0)}
+              src="/tpms-icon.png" 
+              alt="TPMS Icon"
+              className="w-[100px] h-[100px] object-contain drop-shadow-[0_2px_2px_rgba(0,0,0,0.6)]"
+            />
+            
             <motion.h1
               variants={textVariant(1.1)}
               className='font-bold lg:text-[120px] md:text-[100px] sm:text-[60px] text-[36px] lg:leading-[158.4px] md:leading-[114.4px] 
