@@ -32,7 +32,7 @@ const Hero = () => {
   const textY = useTransform(scrollYProgress, [0, 1], ['0%', '20%']);
 
   return (
-    <section id='hero' className="w-full overflow-hidden pt-[80px] sm:pt-[100px] md:pt-0">
+    <section id='hero' className="w-full h-screen flex flex-col pt-[72px] sm:pt-[80px]">
       <motion.div
         variants={staggerContainer}
         initial='hidden'
@@ -41,19 +41,19 @@ const Hero = () => {
           once: false,
           amount: 0.25
         }}
-        className='w-full mx-auto flex flex-col'
+        className='w-full flex-1 mx-auto flex flex-col'
       >
         <motion.div
           ref={ref}
           variants={slideIn('right', 'tween', 0.2, 1)}
-          className='relative w-full md:-mt-[10px] mt-0 pt-1 overflow-hidden px-4 sm:px-6 md:px-8'
+          className='relative w-full h-full overflow-hidden px-4 sm:px-6 md:px-8'
         >
           {/* Contenedor con bordes redondeados y overflow hidden */}
-          <div className="w-full h-full mt-4 overflow-hidden rounded-3xl">
+          <div className="w-full h-full overflow-hidden rounded-3xl py-2 sm:py-3 md:py-4">
             {/* Capa de imagen con efecto parallax y slider */}
             <motion.div
               style={{ y: imageY }}
-              className="w-full h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px] xl:h-[800px] relative"
+              className="w-full h-full relative"
             >
               <AnimatePresence mode="wait">
                 <motion.img
@@ -64,7 +64,7 @@ const Hero = () => {
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                   transition={{ duration: 1 }}
-                  className='w-full h-full object-cover object-center z-0 absolute opacity-90 shadow-lg hover:opacity-100 transition-opacity'
+                  className='w-full h-full object-cover object-center z-0 absolute opacity-90 shadow-lg hover:opacity-100 transition-opacity rounded-2xl'
                 />
               </AnimatePresence>
               
@@ -107,7 +107,7 @@ const Hero = () => {
 
           {/* Sello que se mantiene fijo en su posición */}
           <a href='#explore'>
-            <div className='w-full flex justify-center sm:-mt-[140px] -mt-[80px] relative z-[20]'>
+            <div className='w-full flex justify-center absolute bottom-4 z-[20]'>
               <img
                 src='/stamp.png'
                 alt='stamp'

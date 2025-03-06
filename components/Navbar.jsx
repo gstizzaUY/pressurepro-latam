@@ -269,14 +269,14 @@ const Navbar = () => {
         {isMenuOpen && (
           <motion.div 
             className="fixed left-0 right-0 z-40"
-            style={{ top: `calc(${navHeight}px + 0.5px)` }}
+            style={{ top: `calc(${navHeight}px - 18px)` }}
             variants={menuVariants}
             initial="hidden"
             animate="visible"
             exit="hidden"
           >
             {/* Contenedor del menú con blur */}
-            <div className="px-6 sm:px-16">
+            <div className="px-2 sm:px-8">
               <div 
                 className="rounded-2xl overflow-hidden border border-gray-600/30 shadow-xl backdrop-blur-xl bg-primary-black/70 2xl:max-w-[1280px] w-full mx-auto"
                 style={{
@@ -295,7 +295,7 @@ const Navbar = () => {
                         scrollToSection(section.id);
                         setIsMenuOpen(false);
                       }}
-                      className="block py-3 px-4 text-white text-[16px] sm:text-[18px] hover:bg-white/10 rounded-lg transition-all duration-200 font-semibold"
+                      className="block py-2 px-4 text-white text-[16px] sm:text-[18px] hover:bg-white/10 rounded-lg transition-all duration-200 font-semibold"
                     >
                       {section.name}
                     </motion.a>
