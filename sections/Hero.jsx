@@ -40,12 +40,12 @@ const Hero = () => {
             {/* Capa de imagen con efecto parallax */}
             <motion.div
               style={{ y: imageY }}
-              className="w-full h-[300px] sm:h-[430px] md:h-[520px] lg:h-[600px] xl:h-[680px]"
+              className="w-full h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px] xl:h-[800px]"
             >
               <img
-                src='/semi-camion.jpg'
-                alt='futuristic_mining_truck_yellow.png'
-                className='w-full h-full object-cover z-0 relative opacity-90 shadow-lg hover:opacity-100 transition-opacity'
+                src='/truck.jpg'
+                alt='futuristic_mining_truck_yellow'
+                className='w-full h-full object-cover object-center z-0 relative opacity-90 shadow-lg hover:opacity-100 transition-opacity'
               />
             </motion.div>
           </div>
