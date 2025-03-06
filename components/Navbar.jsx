@@ -16,6 +16,9 @@ const Navbar = () => {
   // Nuevo estado para controlar el menú desplegable de idiomas
   const [isLanguageMenuOpen, setIsLanguageMenuOpen] = useState(false);
 
+  // Altura fija de la navbar en píxeles
+  const fixedNavHeight = 95; // Puedes ajustar este valor según necesites
+
   // Mapeo de idiomas a banderas
   const flagImages = {
     es: '/es.svg',
@@ -25,19 +28,19 @@ const Navbar = () => {
 
   // Efecto para medir la altura del navbar
   useEffect(() => {
-    if (navRef.current) {
-      setNavHeight(navRef.current.offsetHeight);
-      
-      // Actualizar altura en resize
-      const handleResize = () => {
-        setNavHeight(navRef.current.offsetHeight);
-      };
-      
-      window.addEventListener('resize', handleResize);
-      return () => {
-        window.removeEventListener('resize', handleResize);
-      };
-    }
+    // Establecer altura fija
+    setNavHeight(fixedNavHeight);
+    
+    // Ya no necesitamos detectar cambios de tamaño para la altura
+    // pero mantenemos el listener por si se necesita para otros componentes
+    const handleResize = () => {
+      setNavHeight(fixedNavHeight);
+    };
+    
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
 
   // Efecto para detectar el scroll
@@ -149,10 +152,15 @@ const Navbar = () => {
         variants={navVariants}
         initial='hidden'
         whileInView='show'
-        className={`sm:px-16 px-6 py-8 fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${hasScrolled ? 'bg-primary-black/40 backdrop-blur-md shadow-lg' : ''}`}
+        style={{
+          height: `${fixedNavHeight}px`,
+          display: "flex",
+          alignItems: "center"
+        }}
+        className={`sm:px-16 px-6 fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${hasScrolled ? 'bg-primary-black/40 backdrop-blur-md shadow-lg' : ''}`}
       >
         <div className={`absolute w-[50%] inset-0 gradient-01 ${hasScrolled ? 'opacity-30' : 'opacity-100'}`} />
-        <div className='2xl:max-w-[1280px] w-full mx-auto flex justify-between gap-8'>
+        <div className='2xl:max-w-[1280px] w-full mx-auto flex justify-between items-center gap-8'>
           <div className='language-selector relative'>
             {/* Selector de idiomas mejorado */}
             <button
@@ -293,7 +301,7 @@ const Navbar = () => {
         {isMenuOpen && (
           <motion.div 
             className="fixed left-0 right-0 z-40"
-            style={{ top: `calc(${navHeight}px - 18px)` }}
+            style={{ top: `${fixedNavHeight}px` }}
             variants={menuVariants}
             initial="hidden"
             animate="visible"
