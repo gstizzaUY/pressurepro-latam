@@ -13,6 +13,8 @@ const Navbar = () => {
   const [hasScrolled, setHasScrolled] = useState(false);
   const [navHeight, setNavHeight] = useState(0);
   const navRef = useRef(null);
+  // Nuevo estado para controlar el menú desplegable de idiomas
+  const [isLanguageMenuOpen, setIsLanguageMenuOpen] = useState(false);
 
   // Efecto para medir la altura del navbar
   useEffect(() => {
@@ -46,6 +48,20 @@ const Navbar = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+
+  // Cerrar el menú de idiomas cuando se hace clic fuera
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (isLanguageMenuOpen && !event.target.closest('.language-selector')) {
+        setIsLanguageMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isLanguageMenuOpen]);
 
   // Secciones de la página para la navegación
   const sections = [
@@ -96,6 +112,29 @@ const Navbar = () => {
     }
   };
 
+  // Variantes para el menú de idiomas
+  const languageMenuVariants = {
+    hidden: {
+      opacity: 0,
+      scale: 0.8,
+      y: -5,
+    },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      y: 0,
+      transition: {
+        duration: 0.2,
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const languageItemVariants = {
+    hidden: { opacity: 0, y: -5 },
+    visible: { opacity: 1, y: 0 }
+  };
+
   return (
     <>
       <motion.nav
@@ -107,38 +146,95 @@ const Navbar = () => {
       >
         <div className={`absolute w-[50%] inset-0 gradient-01 ${hasScrolled ? 'opacity-30' : 'opacity-100'}`} />
         <div className='2xl:max-w-[1280px] w-full mx-auto flex justify-between gap-8'>
-          <div className='flex gap-1 sm:gap-2'>
+          <div className='language-selector relative'>
+            {/* Selector de idiomas mejorado */}
             <button
-              onClick={() => changeLanguage('es')}
-              className={`w-6 h-6 sm:w-8 sm:h-8 ${language === 'es' ? 'opacity-100' : 'opacity-60'}`}
+              onClick={() => setIsLanguageMenuOpen(!isLanguageMenuOpen)}
+              className="relative z-10 flex items-center space-x-1 group"
             >
-              <img
-                src='/es.svg'
-                alt='Spanish'
-                className='w-[24px] h-[24px] sm:w-[32px] sm:h-[32px] object-contain cursor-pointer hover:opacity-90'
-              />
+              <div className={`${language === 'es' ? 'opacity-100' : 'opacity-80'} hover:opacity-100 transition-opacity`}>
+                <img
+                  src='/es.svg'
+                  alt='Spanish'
+                  className='w-[24px] h-[24px] sm:w-[32px] sm:h-[32px] object-contain'
+                />
+              </div>
+              
+              {/* Indicador de despliegue mejorado */}
+              <motion.div 
+                className="flex items-center justify-center h-4 opacity-70 group-hover:opacity-100 transition-opacity"
+                animate={{ 
+                  rotate: isLanguageMenuOpen ? 180 : 0,
+                }}
+                transition={{ duration: 0.3 }}
+              >
+                <svg 
+                  xmlns="http://www.w3.org/2000/svg" 
+                  width="8" 
+                  height="5" 
+                  viewBox="0 0 8 5" 
+                  className="sm:w-[10px] sm:h-[6px]"
+                  fill="none"
+                >
+                  <path 
+                    d="M1 1L4 4L7 1" 
+                    stroke="white" 
+                    strokeWidth="1.5" 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </motion.div>
             </button>
-            <button
-              onClick={() => changeLanguage('pt')}
-              className={`w-6 h-6 sm:w-8 sm:h-8 ${language === 'pt' ? 'opacity-100' : 'opacity-50'}`}
-            >
-              <img
-                src='/br.svg'
-                alt='Portuguese'
-                className='w-[24px] h-[24px] sm:w-[32px] sm:h-[32px] object-contain cursor-pointer hover:opacity-90'
-              />
-            </button>
-            <button
-              onClick={() => changeLanguage('en')}
-              className={`w-6 h-6 sm:w-8 sm:h-8 ${language === 'en' ? 'opacity-100' : 'opacity-50'}`}
-            >
-              <img
-                src='/us.svg'
-                alt='English'
-                className='w-[24px] h-[24px] sm:w-[32px] sm:h-[32px] object-contain cursor-pointer hover:opacity-90'
-              />
-            </button>
+            
+            {/* Menú desplegable de idiomas */}
+            <AnimatePresence>
+              {isLanguageMenuOpen && (
+                <motion.div
+                  className="absolute left-0 top-full mt-2 bg-primary-black/80 backdrop-blur-md p-2 rounded-lg border border-white/10 shadow-lg"
+                  variants={languageMenuVariants}
+                  initial="hidden"
+                  animate="visible"
+                  exit="hidden"
+                >
+                  {/* Portugués */}
+                  <motion.button
+                    onClick={() => {
+                      changeLanguage('pt');
+                      setIsLanguageMenuOpen(false);
+                    }}
+                    className={`block w-full my-1.5 ${language === 'pt' ? 'opacity-100' : 'opacity-60'} hover:opacity-100 transition-opacity`}
+                    variants={languageItemVariants}
+                    whileHover={{ scale: 1.05 }}
+                  >
+                    <img
+                      src='/br.svg'
+                      alt='Portuguese'
+                      className='w-[24px] h-[24px] sm:w-[32px] sm:h-[32px] object-contain'
+                    />
+                  </motion.button>
+                  
+                  {/* Inglés */}
+                  <motion.button
+                    onClick={() => {
+                      changeLanguage('en');
+                      setIsLanguageMenuOpen(false);
+                    }}
+                    className={`block w-full my-1.5 ${language === 'en' ? 'opacity-100' : 'opacity-60'} hover:opacity-100 transition-opacity`}
+                    variants={languageItemVariants}
+                    whileHover={{ scale: 1.05 }}
+                  >
+                    <img
+                      src='/us.svg'
+                      alt='English'
+                      className='w-[24px] h-[24px] sm:w-[32px] sm:h-[32px] object-contain'
+                    />
+                  </motion.button>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
+          
           <div className="flex items-center">
             <img
               src="/pressurepro-latam-logo.png"
@@ -173,7 +269,7 @@ const Navbar = () => {
         {isMenuOpen && (
           <motion.div 
             className="fixed left-0 right-0 z-40"
-            style={{ top: `calc(${navHeight}px + 0.5px)` }} // Agregamos un pequeño espacio
+            style={{ top: `calc(${navHeight}px + 0.5px)` }}
             variants={menuVariants}
             initial="hidden"
             animate="visible"
@@ -185,7 +281,7 @@ const Navbar = () => {
                 className="rounded-2xl overflow-hidden border border-gray-600/30 shadow-xl backdrop-blur-xl bg-primary-black/70 2xl:max-w-[1280px] w-full mx-auto"
                 style={{
                   WebkitBackdropFilter: 'blur(16px)',
-                  marginTop: '0px', // Eliminamos el solapamiento negativo
+                  marginTop: '0px',
                 }}
               >
                 <div className="py-4 px-2">
