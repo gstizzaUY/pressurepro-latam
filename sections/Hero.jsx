@@ -85,7 +85,7 @@ const Hero = () => {
           {/* Capa de texto que se desplaza junto con la imagen */}
           <motion.div
             style={{ y: textY }}
-            className="absolute inset-0 flex flex-col justify-center items-center z-10"
+            className="absolute inset-0 flex flex-col justify-center items-center z-10 gap-2 md:gap-1"
           >
             <motion.img 
               variants={textVariant(1.0)}
