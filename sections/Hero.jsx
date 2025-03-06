@@ -107,7 +107,7 @@ const Hero = () => {
 
           {/* Sello que se mantiene fijo en su posición */}
           <a href='#explore'>
-            <div className='w-full flex justify-center absolute bottom-4 z-[20]'>
+            <div className='w-full flex justify-end pr-20 absolute bottom-4 z-[20]'>
               <img
                 src='/stamp.png'
                 alt='stamp'
