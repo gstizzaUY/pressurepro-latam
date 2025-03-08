@@ -93,20 +93,14 @@ export const insights = [
 
 export const socials = [
   {
-    name: 'twitter',
-    url: '/twitter.svg',
-  },
-  {
     name: 'linkedin',
     url: '/linkedin.svg',
-  },
-  {
-    name: 'instagram',
-    url: '/instagram.svg',
+    link: 'https://www.linkedin.com/company/pressureprotpms/',
   },
   {
     name: 'facebook',
     url: '/facebook.svg',
+    link: 'https://www.facebook.com/PressureProTPMS/?locale=es_LA' ,
   },
 ];
 

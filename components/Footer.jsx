@@ -36,7 +36,7 @@ const Footer = () => {
               </svg>
               <span className='font-normal text-[16px] text-white'>
                 {translations.footer.contact}
-                </span>
+              </span>
             </button>
           </a>
         </div>
@@ -51,12 +51,19 @@ const Footer = () => {
             </p>
             <div className='flex gap-4'>
               {socials.map((social) => (
-                <img
+                <a
                   key={social.name}
-                  src={social.url}
-                  alt={social.name}
-                  className='w-[24px] h-[24px] object-contain cursor-pointer'
-                />
+                  href={social.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Visitar ${social.name}`}
+                >
+                  <img
+                    src={social.url}
+                    alt={social.name}
+                    className='w-[24px] h-[24px] object-contain cursor-pointer'
+                  />
+                </a>
               ))}
             </div>
           </div>

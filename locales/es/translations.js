@@ -113,6 +113,16 @@ export default {
                 imgUrl: '/pp-white.png',
                 title: "Ahorro",
                 subtitle: "Optimiza el consumo de combustible, reduce el desgaste de los neumáticos y minimiza los costos de mantenimiento y reemplazo."
+            },
+            {
+                imgUrl: '/pp-white.png',
+                title: "Hecho en USA",
+                subtitle: "Diseñado y fabricado en Estados Unidos, cumpliendo con los más altos estándares de calidad y tecnología."
+            },
+            {
+                imgUrl: '/pp-white.png',
+                title: "Medio Ambiente",
+                subtitle: "Contribuye a la sostenibilidad, reduciendo la huella de carbono y el impacto ambiental de la operación de flotas."
             }
         ]
     },
