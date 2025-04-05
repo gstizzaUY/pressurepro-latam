@@ -132,7 +132,7 @@ export default {
                 description:
                     'They are installed by adjusting them to the tire valve stem. Advanced monitoring includes a unique dynamic detection logic in the market with high sampling rates and unparalleled protection.',
                 specs: 'Download Specifications',
-                specsUrl: '/SEN-200-Spec-Sheet.pdf',
+                specsUrl: '/OEM-SEN-205 Spec Sheet.pdf',
             },
             {
                 imgUrl: '/planet-07.png',

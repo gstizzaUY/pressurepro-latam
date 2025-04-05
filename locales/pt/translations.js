@@ -132,7 +132,7 @@ export default {
                 description:
                     'Eles são instalados ajustando-os à haste da válvula do pneu. O monitoramento avançado inclui uma lógica de detecção dinâmica única no mercado com altas taxas de amostragem e proteção incomparável.',
                 specs: 'Baixar Especificações',
-                specsUrl: '/SEN-200-Spec-Sheet.pdf',
+                specsUrl: '/OEM-SEN-205 Spec Sheet.pdf',
             },
             {
                 imgUrl: '/planet-07.png',
@@ -148,7 +148,7 @@ export default {
                 description:
                     'O Link é um dispositivo de comunicação que permite a integração de sensores de pressão de pneus com sistemas de telemática de veículos.',
                 specs: 'Baixar Especificações',
-                specsUrl: 'LNK-101-Spec-Sheet.pdf',
+                specsUrl: '/LNK-101-Spec-Sheet.pdf',
             },
             {
                 imgUrl: '/planet-088.png',
